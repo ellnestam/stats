@@ -1,4 +1,7 @@
 {
+    "scripts" : {
+	"start" : "node lib/server.js"
+    },
     "main": "lib/server.js",
     "engines": {
 	"node": ">= 0.8.0"
