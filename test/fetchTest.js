@@ -1,5 +1,5 @@
 var fetch = require('../lib/fetch');
-
+var q = require('q');
 
 var fetchTest = {
 
@@ -7,7 +7,8 @@ var fetchTest = {
 	var cred = {'username' : 'b0363500',
 		    'password' : 'H@mst3r!'};
 
-	fetch.request(console.log, cred);
+	var promises = fetch.request(cred);
+	fetch.prettyPrint(promises, fetch.summarize);
     }
 }
 
