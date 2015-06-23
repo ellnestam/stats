@@ -8,10 +8,43 @@ var fetchTest = {
 		    'password' : 'H@mst3r!'};
 
 	var promises = fetch.request(cred);
-	fetch.prettyPrint(promises, fetch.summarize);
+	promises.then(console.log, console.error);
+
+	
+	// fetch.prettyPrint(promises, fetch.summarize);
+    },
+
+    testSummarize : function() {
+	var summary = [
+	    {'generated'  : '01-May-2015 00:30 CEST',
+	     'res'        :
+	     [
+		 {name : '/pod/avsnitt1.mp3', count : '13'},
+		 {name : '/pod/avsnitt10.mp3', count : '6'},
+		 {name: '/pod/avsnitt5.mp3', count : '2'}
+
+	     ]
+	    },
+
+	    {'generated'  : '01-Jun-2015 00:30 CEST',
+	     'res'        :
+	     [
+		 {name : '/pod/avsnitt1.mp3', count : '13'},
+		 {name : '/pod/avsnitt10.mp3', count : '6'},
+		 {name: '/pod/avsnitt5.mp3', count : '2'}
+	     ]
+	    }
+	]; 
+
+	var text = fetch.summarize(summary);
+	console.log(text);
+	
     }
+    
+    
 }
 
-fetchTest.test();
+// fetchTest.test();
+fetchTest.testSummarize();
 
 module.exports = fetchTest;
